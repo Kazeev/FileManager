@@ -1,6 +1,6 @@
-package ru.mydesignstio.jaxrs.service;
+package ru.mpei.jaxrs.service;
 
-import ru.mydesignstio.jaxrs.model.Person;
+import ru.mpei.jaxrs.model.Person;
 
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
