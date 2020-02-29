@@ -1,4 +1,4 @@
-package ru.mpei.jaxrs.model;
+package ru.mpei.jaxrs.fileCRUD;
 
 /**
  * Created by ABarmin on 25.02.2016.
