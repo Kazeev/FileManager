@@ -12,6 +12,7 @@
         <postgresql.version>9.4.1212.jre7</postgresql.version>
         <hibernate.version>5.2.1.Final</hibernate.version>
         <c3p0.version>0.9.5.2</c3p0.version>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
     <dependencies>
@@ -66,13 +67,6 @@
         <plugins>
 
 
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-war-plugin</artifactId>
-                <configuration>
-                    <webXml>src/main/webapp/WEB-INF/web.xml</webXml>
-                </configuration>
-            </plugin>
 
             <plugin>
                 <groupId>org.apache.tomcat.maven</groupId>
