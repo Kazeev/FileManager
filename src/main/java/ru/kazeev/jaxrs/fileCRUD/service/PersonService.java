@@ -1,6 +1,8 @@
 package ru.kazeev.jaxrs.fileCRUD.service;
 
 
+import ru.kazeev.jaxrs.fileCRUD.Person;
+
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
@@ -18,8 +20,8 @@ public class PersonService {
     @Path("/{id}")
     @Produces(MediaType.APPLICATION_JSON)
     public Response getPerson(@PathParam("id") String id){
-        String s ="321";
-        return Response.ok(s).build();
+        Person p = new Person("Misha", id);
+        return Response.ok(p).build();
     }
 
 }
