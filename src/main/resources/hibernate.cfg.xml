@@ -1,0 +1,18 @@
+<hibernate-configuration>
+    <session-factory>
+
+        <property name="hibernate.hbm2ddl.auto">update</property>
+        <property name="hibernate.connection.url">jdbc:postgresql://127.0.0.1:5432/FileManager</property>
+        <property name="hibernate.dialect">org.hibernate.dialect.PostgreSQL94Dialect</property>
+        <property name="connection.username">postgres</property>
+        <property name="connection.password">admin</property>
+        <property name="hibernate.c3p0.min_size">5</property>
+        <property name="connection.driver_class">org.postgresql.Driver</property>
+
+        <mapping class="ru.kazeev.jaxrs.fileCRUD.dao.AccountEntity"/>
+        <mapping resource="AccountEntity.hbm.xml"/>
+        <mapping resource="FileEntity.hbm.xml"/>
+        <mapping class="ru.kazeev.jaxrs.fileCRUD.dao.FileEntity"/>
+    </session-factory>
+
+</hibernate-configuration>

@@ -9,12 +9,11 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
+import java.sql.Date;
 
-/**
- * Created by ABarmin on 25.02.2016.
- */
 @Path("/file")
 public class PersonService {
+
 
     @GET
     @Path("/{id}")
