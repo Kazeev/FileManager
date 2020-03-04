@@ -1,4 +1,4 @@
-package org.barbecue;
+package org.barbecue.module.file.rest;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
