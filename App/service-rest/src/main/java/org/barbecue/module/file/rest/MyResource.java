@@ -1,5 +1,7 @@
 package org.barbecue.module.file.rest;
 
+import javax.annotation.security.RolesAllowed;
+import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
@@ -17,9 +19,13 @@ public class MyResource {
      *
      * @return String that will be returned as a text/plain response.
      */
+    @RolesAllowed("ADMIN")
     @GET
-    @Produces(MediaType.TEXT_PLAIN)
+    @Produces(MediaType.APPLICATION_JSON)
+    @Consumes(MediaType.APPLICATION_JSON)
     public String getIt() {
         return "Got it!";
     }
+
+
 }
