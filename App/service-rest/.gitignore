@@ -1,0 +1,14 @@
+# Datasource local storage ignored files
+/dataSources.local.xml
+/workspace.xml
+.idea/
+target/maven-archiver/
+target/maven-archiver/pom.properties
+FileManager.iml
+target/maven-status/maven-compiler-plugin/compile/default-compile/
+target/FileManager/WEB-INF/lib/
+target/FileManager/WEB-INF/
+/target/FileManager/WEB-INF/
+/target/FileManager/WEB-INF/
+/.idea/
+/target/classes/org/barbecue/
