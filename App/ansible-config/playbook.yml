@@ -10,11 +10,11 @@
         - tcpdump
         - rsync
 
-  - name: debug various
-    hosts: all
-    tasks:
-      - debug:
-          msg: "for various debug purposes, like variables printing {{ data_dir }}"
+- name: debug various
+  hosts: all
+  tasks:
+    - debug:
+        msg: "for various debug purposes, like variables printing {{ data_dir }}"
 
 - name: Install Docker-ce for x86 arch
   hosts: all
@@ -26,18 +26,20 @@
      - ca-certificates
      - curl
      - software-properties-common
-  - name: Add Docker GPG key
-    apt_key: url=https://download.docker.com/linux/debian/gpg
-  - name: Add Docker APT repository
-    apt_repository:
-      repo: deb [arch=amd64] https://download.docker.com/linux/debian {{ansible_distribution_release}} stable
-  - name: install docker
-    package:
-      name: docker-ce
-      state: present
 
-- name: Install docker-py module for python3
-  hosts: all
-  tasks:
-    - pip:
-        name: docker-py
+  - name: Add Docker GPG apt Key
+      apt_key:
+        url: https://download.docker.com/linux/ubuntu/gpg
+        state: present
+
+  - name: Add Docker Repository
+      apt_repository:
+        repo: deb https://download.docker.com/linux/ubuntu bionic stable
+        state: present
+
+  - name: Update apt and install docker-ce
+      apt: update_cache=yes name=docker-ce state=latest
+
+  - name: Install Docker Module for Python
+      pip:
+        name: docker
