@@ -1,0 +1,11 @@
+---
+all:
+  hosts:
+    file_manager:
+      ansible_host: 195.133.147.196
+      ansible_port: 22
+      ansible_connection: ssh
+      ansible_user: root
+      ansible_ssh_pass: Pgd4FD1u52
+      ansible_become: yes
+      data_dir: "/data"
