@@ -20,11 +20,10 @@
         <finalName>FileManager</finalName>
         <plugins>
             <plugin>
-            <groupId>org.apache.maven.plugins</groupId>
-            <artifactId>maven-war-plugin</artifactId>
-            <version>3.2.2</version>
-
-        </plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-war-plugin</artifactId>
+                <version>3.2.2</version>
+            </plugin>
         </plugins>
     </build>
 
@@ -60,6 +59,14 @@
             <artifactId>commons-codec</artifactId>
             <version>1.14</version>
         </dependency>
-    </dependencies>
 
+
+        <dependency>
+            <groupId>org.postgresql</groupId>
+            <artifactId>postgresql</artifactId>
+            <version>42.2.10</version>
+        </dependency>
+
+
+    </dependencies>
 </project>

@@ -89,25 +89,7 @@ public class AuthenticationFilter implements javax.ws.rs.container.ContainerRequ
             }
         }
     }
-    private boolean isUserAllowed(final String username, final String password, final Set<String> rolesSet)
-    {
-        boolean isAllowed = false;
-
-        //TODO
-        // Шаг 1. Получить пароль из базы данных и сопоставить его с паролем в аргументе
-        // Если оба совпадения, то получить определенную роль для пользователя из базы данных и продолжить; иначе возвращение isAllowed [false]
-        // String usrerRole = usuerMg.getUserRole (sername);
-
-        if(username.equals("misha") && password.equals("123"))
-        {
-            String userRole = "ADMIN";
-
-            // Шаг 2. Проверка роли пользователя
-            if(rolesSet.contains(userRole))
-            {
-                isAllowed = true;
-            }
-        }
-        return isAllowed;
+    private boolean isUserAllowed(final String username, final String password, final Set<String> /*TODO*/ rolesSet) {
+        return RequestToDatabase.checkInBD(username, password);
     }
 }
