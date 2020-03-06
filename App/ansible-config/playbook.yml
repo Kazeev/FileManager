@@ -47,3 +47,24 @@
   - name: Install Docker Module for Python
     pip:
       name: docker
+
+- name: Copy build source, Build image and Create and connect Postgres container to network
+  hosts: all
+  tasks:
+  - name: Copy build source
+    copy:
+      src: ./docker-postgres
+      dest: /root
+
+  - name: Build Postgress image
+    docker_image:
+      name: postgres-filemanager
+      path: /root/docker-postgres
+
+  - name: Create and connect Postgres container to network
+    docker_container:
+      name: Postgres
+      image: postgres-filemanager
+      restart: yes
+      restart_policy: unless-stopped
+      network_mode: host
