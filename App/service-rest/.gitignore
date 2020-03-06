@@ -4,3 +4,6 @@
 /target/generated-sources/
 /target/maven-archiver/
 /target/maven-status/
+/.idea/
+/target/classes/org/barbecue/
+/target/FileManager/WEB-INF/classes/org/barbecue/
