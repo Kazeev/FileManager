@@ -12,6 +12,7 @@ import javax.ws.rs.core.MultivaluedMap;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.ext.Provider;
 import java.lang.reflect.Method;
+import java.sql.*;
 import java.util.*;
 
 
@@ -93,20 +94,24 @@ public class AuthenticationFilter implements javax.ws.rs.container.ContainerRequ
     {
         boolean isAllowed = false;
 
-        //TODO
-        // Шаг 1. Получить пароль из базы данных и сопоставить его с паролем в аргументе
-        // Если оба совпадения, то получить определенную роль для пользователя из базы данных и продолжить; иначе возвращение isAllowed [false]
-        // String usrerRole = usuerMg.getUserRole (sername);
+        try {
+            Class.forName("org.postgresql.Driver");
+            Connection connection = DriverManager.getConnection("jdbc:postgresql://localhost:5432/FileManager", "postgres", "admin");
+            Statement statement = connection.createStatement();
+            ResultSet resultSet = statement.executeQuery("" +
+                    "select account.pass " +
+                    "from file_manager.account account " +
+                    "where account.user_name = '" + username + "';");
 
-        if(username.equals("misha") && password.equals("123"))
-        {
-            String userRole = "ADMIN";
-
-            // Шаг 2. Проверка роли пользователя
-            if(rolesSet.contains(userRole))
-            {
-                isAllowed = true;
+            while(resultSet.next()) {
+                if (resultSet.getString("pass").equals(password)) {
+                    isAllowed = true;
+                } else {
+                    isAllowed = false;
+                }
             }
+        } catch (ClassNotFoundException | SQLException e) {
+            e.printStackTrace();
         }
         return isAllowed;
     }
