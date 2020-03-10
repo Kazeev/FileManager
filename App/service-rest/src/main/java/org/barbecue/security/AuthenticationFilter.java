@@ -1,9 +1,6 @@
 package org.barbecue.security;
 
 import org.apache.commons.codec.binary.Base64;
-import org.barbecue.hibernate.HibernateSessionFactory;
-import org.barbecue.security.dto.AccountEntity;
-import org.hibernate.Session;
 
 import javax.annotation.security.DenyAll;
 import javax.annotation.security.PermitAll;
@@ -73,8 +70,8 @@ public class AuthenticationFilter implements javax.ws.rs.container.ContainerRequ
             final String password = tokenizer.nextToken();
 
             //Verifying Username and password
-//            System.out.println(username);
-//            System.out.println(password);
+            System.out.println(username);
+            System.out.println(password);
 
             //Verify user access
             if(method.isAnnotationPresent(RolesAllowed.class))
@@ -92,20 +89,25 @@ public class AuthenticationFilter implements javax.ws.rs.container.ContainerRequ
             }
         }
     }
-    private boolean isUserAllowed(final String username, final String password, final Set<String> /*TODO*/ rolesSet) {
-        Session session = HibernateSessionFactory.getSessionFactory().openSession();
+    private boolean isUserAllowed(final String username, final String password, final Set<String> rolesSet)
+    {
+        boolean isAllowed = false;
 
-        List<Object[]> accountEntityList = session.createQuery("select a.pass from AccountEntity as a where a.name = '" +username+ "' ").list();
-        for(Object[] row : accountEntityList) {
-            AccountEntity user = new AccountEntity();
-            user.setId     (Integer.valueOf(row[0].toString()));
-            user.setName                   (row[1].toString());
-            user.setPass                   (row[2].toString());
-            System.out.println(user.toString()+"!!!_!!");
+        //TODO
+        // Шаг 1. Получить пароль из базы данных и сопоставить его с паролем в аргументе
+        // Если оба совпадения, то получить определенную роль для пользователя из базы данных и продолжить; иначе возвращение isAllowed [false]
+        // String usrerRole = usuerMg.getUserRole (sername);
+
+        if(username.equals("misha") && password.equals("123"))
+        {
+            String userRole = "ADMIN";
+
+            // Шаг 2. Проверка роли пользователя
+            if(rolesSet.contains(userRole))
+            {
+                isAllowed = true;
+            }
         }
-
-        return /*RequestToDatabase.checkInBD(username, password)*/true;
+        return isAllowed;
     }
-
-
 }
