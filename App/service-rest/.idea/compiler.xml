@@ -7,7 +7,6 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="FileManager" />
-        <module name="service-rest" />
       </profile>
     </annotationProcessing>
   </component>

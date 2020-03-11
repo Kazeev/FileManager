@@ -1,7 +1,7 @@
 package org.barbecue.security;
 
 
-import org.barbecue.module.file.rest.MyResource;
+import org.barbecue.module.file.rest.FileRest;
 import org.glassfish.jersey.server.ResourceConfig;
 
 public class CustomApplication extends ResourceConfig
@@ -11,7 +11,7 @@ public class CustomApplication extends ResourceConfig
     public CustomApplication()
     {
         packages(packages);
-        register(MyResource.class);
+        register( FileRest.class);
 
         //Register Auth Filter here
         register(AuthenticationFilter.class);
