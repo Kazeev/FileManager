@@ -35,6 +35,7 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+    <option name="UPDATE_TYPE" value="MERGE" />
   </component>
   <component name="MavenImportPreferences">
     <option name="importingSettings">
@@ -137,14 +138,16 @@
       <screen x="0" y="0" width="1536" height="834" />
     </state>
     <state x="529" y="220" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1536.834@0.0.1536.834" timestamp="1583354695270" />
-    <state x="353" y="7" width="1183" height="815" key="CommitChangelistDialog2" timestamp="1583354935131">
-      <screen x="0" y="0" width="1536" height="834" />
+    <state x="292" y="23" width="1183" height="815" key="CommitChangelistDialog2" timestamp="1584036831566">
+      <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state x="353" y="7" width="1183" height="815" key="CommitChangelistDialog2/0.0.1536.834@0.0.1536.834" timestamp="1583354935131" />
-    <state x="294" y="63" key="DiffContextDialog" timestamp="1583354652530">
-      <screen x="0" y="0" width="1536" height="834" />
+    <state x="292" y="23" key="CommitChangelistDialog2/0.0.1920.1050@0.0.1920.1050" timestamp="1584036831566" />
+    <state x="92" y="92" width="1736" height="866" key="DiffContextDialog" timestamp="1584036854584">
+      <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state x="294" y="63" key="DiffContextDialog/0.0.1536.834@0.0.1536.834" timestamp="1583354652530" />
+    <state x="92" y="92" width="1736" height="866" key="DiffContextDialog/0.0.1920.1050@0.0.1920.1050" timestamp="1584036854584" />
     <state width="1493" height="213" key="GridCell.Tab.0.bottom" timestamp="1583354909113">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
@@ -173,14 +176,16 @@
       <screen x="0" y="0" width="1536" height="834" />
     </state>
     <state x="277" y="59" key="SettingsEditor/0.0.1536.834@0.0.1536.834" timestamp="1583349690211" />
-    <state x="361" y="150" key="Vcs.Push.Dialog.v2" timestamp="1583354862716">
-      <screen x="0" y="0" width="1536" height="834" />
+    <state x="451" y="189" key="Vcs.Push.Dialog.v2" timestamp="1584036815606">
+      <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state x="361" y="150" key="Vcs.Push.Dialog.v2/0.0.1536.834@0.0.1536.834" timestamp="1583354862716" />
-    <state x="578" y="334" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1583354590016">
-      <screen x="0" y="0" width="1536" height="834" />
+    <state x="451" y="189" key="Vcs.Push.Dialog.v2/0.0.1920.1050@0.0.1920.1050" timestamp="1584036815606" />
+    <state x="723" y="421" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1584036854578">
+      <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state x="578" y="334" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1536.834@0.0.1536.834" timestamp="1583354590016" />
+    <state x="723" y="421" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1050@0.0.1920.1050" timestamp="1584036854578" />
     <state x="431" y="155" key="search.everywhere.popup" timestamp="1583354953797">
       <screen x="0" y="0" width="1536" height="834" />
     </state>

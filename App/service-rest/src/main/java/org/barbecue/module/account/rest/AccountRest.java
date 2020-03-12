@@ -1,6 +1,8 @@
 package org.barbecue.module.account.rest;
 
-import org.barbecue.module.account.dao.AccountDao;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import org.barbecue.module.account.dao.AccountDaoImp;
 import org.barbecue.module.account.dto.AccountDto;
 
 import javax.annotation.security.RolesAllowed;
@@ -12,10 +14,12 @@ import java.sql.SQLException;
 /**
  * Root resource (exposed at "myresource" path)
  */
+
 @Path("account")
 public class AccountRest {
-    AccountDao dao;
+    AccountDaoImp dao;
 
+    @RolesAllowed("User")
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
@@ -23,12 +27,13 @@ public class AccountRest {
         return "Got it!";
     }
 
+    @RolesAllowed("User")
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
     @Path("/{userId}")
-    public Response getUser(@PathParam("userId") Integer userId) throws SQLException {
-        AccountDto account = dao.find(userId) ;
-        return Response.ok(account).build();
+    public Response getUser(@PathParam("userId") Integer userId) throws SQLException, JsonProcessingException {
+        String json = new ObjectMapper().writeValueAsString( new AccountDto(1,"test","test")/*dao.find(userId)*/);
+        return Response.ok(json).build();
     }
 }

@@ -11,6 +11,9 @@ public class AccountDto {
         this.pass = pass;
     }
 
+    public AccountDto() {
+    }
+
     public Integer getId() {
         return id;
     }

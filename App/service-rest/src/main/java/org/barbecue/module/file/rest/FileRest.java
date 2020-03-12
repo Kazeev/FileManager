@@ -19,7 +19,7 @@ public class FileRest {
      *
      * @return String that will be returned as a text/plain response.
      */
-    @RolesAllowed("ADMIN")
+    @RolesAllowed("User")
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)

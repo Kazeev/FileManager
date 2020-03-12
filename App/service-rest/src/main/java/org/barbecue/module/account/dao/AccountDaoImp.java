@@ -11,7 +11,10 @@ public class AccountDaoImp implements AccountDao {
 
     @Override
     public AccountDto find(Integer id) throws SQLException {
-        String  sql = "select *";
+        String  sql = "" +
+            "select *" +
+            "from file_manager.account ac" +
+            "where ac.id = "+ id +";";
         ResultSet resultSet = accountDataBaceConnector.getExecuteQuery( sql);
         resultSet.next();
 
