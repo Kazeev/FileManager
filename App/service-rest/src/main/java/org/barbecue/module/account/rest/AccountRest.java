@@ -3,7 +3,6 @@ package org.barbecue.module.account.rest;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.barbecue.module.account.dao.AccountDaoImp;
-import org.barbecue.module.account.dto.AccountDto;
 
 import javax.annotation.security.RolesAllowed;
 import javax.ws.rs.*;
@@ -17,7 +16,7 @@ import java.sql.SQLException;
 
 @Path("account")
 public class AccountRest {
-    AccountDaoImp dao;
+    AccountDaoImp dao = new AccountDaoImp();
 
     @RolesAllowed("User")
     @GET
@@ -33,7 +32,7 @@ public class AccountRest {
     @Consumes(MediaType.APPLICATION_JSON)
     @Path("/{userId}")
     public Response getUser(@PathParam("userId") Integer userId) throws SQLException, JsonProcessingException {
-        String json = new ObjectMapper().writeValueAsString( new AccountDto(1,"test","test")/*dao.find(userId)*/);
+        String json = new ObjectMapper().writeValueAsString(dao.find(userId));
         return Response.ok(json).build();
     }
 }

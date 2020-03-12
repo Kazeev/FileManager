@@ -1,27 +1,39 @@
 package org.barbecue.module.account.dao;
 
-import org.barbecue.module.account.AccountDataBaceConnector;
 import org.barbecue.module.account.dto.AccountDto;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class AccountDaoImp implements AccountDao {
-    AccountDataBaceConnector accountDataBaceConnector;
+    static Connection connection;
+
+    public AccountDaoImp() {
+        try {
+            Class.forName("org.postgresql.Driver");
+            connection = DriverManager.getConnection(URL, LOGIN, PASS);
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
 
     @Override
     public AccountDto find(Integer id) throws SQLException {
         String  sql = "" +
             "select *" +
-            "from file_manager.account ac" +
-            "where ac.id = "+ id +";";
-        ResultSet resultSet = accountDataBaceConnector.getExecuteQuery( sql);
+            "from file_manager.account " +
+            "where id = "+ id +";";
+        ResultSet resultSet = connection.createStatement().executeQuery(sql);
         resultSet.next();
 
         return new AccountDto(
                 resultSet.getInt( "id" )
-                ,resultSet.getString( "name" )
-                ,resultSet.getString( "password" ));
+                ,resultSet.getString( "user_name" )
+                ,resultSet.getString( "pass" ));
     }
 
     @Override
@@ -32,13 +44,13 @@ public class AccountDaoImp implements AccountDao {
     @Override
     public void create(AccountDto accountDto) throws SQLException {
         String  sql = "select *";
-        accountDataBaceConnector.getConnection().createStatement().execute(sql);
+        connection.createStatement().execute(sql);
     }
 
     @Override
     public void delete(AccountDto accountDto) throws SQLException {
         String  sql = "select *";
-        accountDataBaceConnector.getConnection().createStatement().execute(sql);
+        connection.createStatement().execute(sql);
     }
 
     @Override

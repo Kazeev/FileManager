@@ -1,11 +1,13 @@
 package org.barbecue.module.account.dao;
 
-import org.barbecue.module.account.AccountDataBaceConnector;
 import org.barbecue.module.account.dto.AccountDto;
 
 import java.sql.SQLException;
 
 public interface AccountDao {
+    static final String URL ="jdbc:postgresql://localhost:5432/FileManager";
+    static final String LOGIN ="postgres";
+    static final String PASS ="admin";
 
     public AccountDto find(Integer id) throws SQLException;
     public AccountDto find();
