@@ -89,7 +89,6 @@ public class AuthenticationFilter implements javax.ws.rs.container.ContainerRequ
     private boolean isUserAllowed(final String username, final String password, final Set<String> rolesSet)
     {
         boolean isAllowed = false;
-
         try {
             Class.forName("org.postgresql.Driver");
             Connection connection = DriverManager.getConnection("jdbc:postgresql://localhost:5432/FileManager", "postgres", "admin");

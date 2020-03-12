@@ -4,6 +4,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import org.barbecue.module.account.dto.AccountDto;
 import org.barbecue.module.account.setvice.AccountCervices;
 
+import javax.annotation.security.PermitAll;
 import javax.annotation.security.RolesAllowed;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
@@ -32,6 +33,7 @@ public class AccountRest {
 
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
+    @PermitAll
     public Response  createUser(AccountDto account) throws SQLException {
         AccountCervices.createUser(account);
         return Response.ok().build();
