@@ -6,6 +6,8 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class AccountDaoImp implements AccountDao {
     static Connection connection;
@@ -27,9 +29,9 @@ public class AccountDaoImp implements AccountDao {
             "select *" +
             "from file_manager.account " +
             "where id = "+ id +";";
+
         ResultSet resultSet = connection.createStatement().executeQuery(sql);
         resultSet.next();
-
         return new AccountDto(
                 resultSet.getInt( "id" )
                 ,resultSet.getString( "user_name" )
@@ -37,8 +39,21 @@ public class AccountDaoImp implements AccountDao {
     }
 
     @Override
-    public AccountDto find() {
-        return null;
+    public List<?> find() throws SQLException {
+        String  sql = "" +
+            "select *" +
+            "from file_manager.account";
+        ResultSet resultSet = connection.createStatement().executeQuery(sql);
+        List<AccountDto> accounts = new ArrayList();
+
+        while (resultSet.next()){
+            accounts.add(new AccountDto(
+                     resultSet.getInt( "id" )
+                    ,resultSet.getString( "user_name" )
+                    ,resultSet.getString( "pass" )));
+        }
+
+        return accounts;
     }
 
     @Override

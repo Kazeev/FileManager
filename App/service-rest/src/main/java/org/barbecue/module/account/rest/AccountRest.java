@@ -18,21 +18,20 @@ import java.sql.SQLException;
 public class AccountRest {
     AccountDaoImp dao = new AccountDaoImp();
 
-    @RolesAllowed("User")
-    @GET
-    @Produces(MediaType.APPLICATION_JSON)
-    @Consumes(MediaType.APPLICATION_JSON)
-    public String getIt() {
-        return "Got it!";
-    }
-
-    @RolesAllowed("User")
+    @RolesAllowed("Admin")
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
     @Path("/{userId}")
     public Response getUser(@PathParam("userId") Integer userId) throws SQLException, JsonProcessingException {
         String json = new ObjectMapper().writeValueAsString(dao.find(userId));
+        return Response.ok(json).build();
+    }
+
+    @GET
+    @RolesAllowed("Admin")
+    public Response getAllUser() throws SQLException, JsonProcessingException {
+        String json = new ObjectMapper().writeValueAsString(dao.find());
         return Response.ok(json).build();
     }
 }
