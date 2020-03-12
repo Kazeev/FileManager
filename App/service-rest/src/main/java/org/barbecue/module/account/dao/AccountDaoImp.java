@@ -58,7 +58,7 @@ public class AccountDaoImp implements AccountDao {
 
     @Override
     public void create(AccountDto accountDto) throws SQLException {
-        String  sql = "select *";
+        String  sql = "insert into file_manager.account (user_name, pass) values ( '"+accountDto.getName()+"', '"+accountDto.getPass()+"');";
         connection.createStatement().execute(sql);
     }
 
